@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域</title>
+</head>
+<body>
+<script>
+    switch (location.hash) {
+        case '#data':
+            callback();
+            break;
+    }
+
+    function callback () {
+        var data = "aHash"
+        try {
+            parent.location.hash = data;
+        } catch (e) {
+            var ifrproxy = document.createElement('iframe');
+            ifrproxy.style.display = 'none';
+            ifrproxy.src = 'http://localhost:3000/c.html#' + data;
+            document.body.appendChild(ifrproxy);
+        }
+    }
+</script>
+</body>
+</html>

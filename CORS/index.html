@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CORS 跨域</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    $.ajax({
+        type: 'post',
+        url: 'http://localhost:3000',
+        success: function(res) {
+            console.log(res);
+        }
+    })
+</script>
+</body>
+</html>

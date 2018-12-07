@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CORS 跨域</title>
+</head>
+<body>
+<script>
+    var data = null;
+    var state = 0;
+    var iframe = document.createElement('iframe');
+    iframe.src = "http://localhost:3001/b.html";
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    iframe.onload = function () {
+        if (state === 0) {
+            iframe.src = "http://localhost:3000/c.html";
+            state = 1;
+        } else if (state === 1) {
+            data = iframe.contentWindow.name;
+            console.log('收到数据:', data);
+        }
+    }
+</script>
+</body>
+</html>

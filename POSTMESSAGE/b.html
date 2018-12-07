@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON 跨域</title>
+</head>
+<body>
+<script>
+    window.addEventListener('message', function (event) {
+        if (event.origin !== 'http://localhost:3000') return;
+        if (event.data === 'Hello') {
+            event.source.postMessage('Hello World', event.origin + '/a.html');
+        } else {
+            console.log(event.data);
+        }
+    }, false);
+</script>
+</body>
+</html>

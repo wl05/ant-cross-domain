@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON 跨域</title>
+</head>
+<body>
+<script>
+    var popup = window.open('http://localhost:3000/b.html', 'title');
+    popup.postMessage('Hello', 'http://localhost:3000/b.html');
+    window.addEventListener('message', function (e) {
+        console.log(e.data);
+    }, false);
+</script>
+</body>
+</html>
